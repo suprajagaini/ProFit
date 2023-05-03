@@ -1,0 +1,71 @@
+<!-- <p>register works!</p> -->
+<h1 align=style="color:red; text-align: center;"> Registration </h1>
+
+<form #regFrom="ngForm" (ngSubmit)="Registration(regFrom.value)">
+
+<table align="center">
+    <tr>
+        <td align="right">ID</td>
+        <td align="left"><input type="number" name="Id" ngModel /> </td>
+    </tr>
+
+    <tr>
+        <td align="right">Name</td>
+        <td align="left"><input type="text" name="Name" ngModel /> </td>
+    </tr>
+
+    <tr>
+        <td align="right">Gender</td>
+        <td align="left">
+            <select name="gender" ngModel>
+                <option value=""> Select Gender </option>
+                <option value="Male"> Male </option>
+                <option value="Female"> Female </option>
+                <option value="Other"> Other </option>
+            </select>
+        </td>
+    </tr>
+
+    <tr>
+        <td align="right">Country</td>
+        <td align="left">
+            <select name="country" ngModel>
+                <option value=""> Select Country </option>
+                <option value="IND"> INDIA </option>
+                <option value="CHI"> CHINA </option>
+                <option value="BUT"> BUTAN </option>
+                <option value="US">  USA   </option>
+                <option value="GB">  UK    </option>
+            </select>
+        </td>
+    </tr>
+
+    <tr>
+        <td align="right">Date of Join</td>
+        <td align="left"><input type="date" name="doj" ngModel /> </td>
+    </tr>
+
+    <tr>
+        <td align="right">Email-ID</td>
+        <td align="left"><input type="text" name="emailId" ngModel /> </td>
+    </tr>
+
+    <tr>
+        <td align="right">Password</td>
+        <td align="left"><input type="password" name="password" ngModel /> </td>
+    </tr>
+
+    <tr>
+        <td align="right"></td>
+        <td align="left"> <button> Register </button> </td>
+    </tr>
+
+</table>
+</form>
+
+
+
+
+
+
+

@@ -1,0 +1,24 @@
+
+<h1 style="color:red; text-align: center;"> <u>ProFit</u></h1>
+
+    <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)"  >
+        <table align="center">
+            <tr>
+                <td align="right">Email-ID</td>
+                <td align="left"><input type="text" name="emailId" ngModel  /> </td>
+            </tr>
+        <br/>
+            <tr>
+                <td align="right">Password</td>
+                <td align="left"><input type="password" name="password" ngModel /> </td>
+            </tr>
+            <br/>
+            <tr>
+           
+                <td align="right"></td>
+                <td align="center"> <button class="btn btn-primary" style="background-color:lightblue;"> <b> Login </b></button> </td>
+            </tr>
+   
+
+</table>
+    </form>
