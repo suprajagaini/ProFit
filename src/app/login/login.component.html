@@ -1,24 +1,31 @@
+<div class="main-c">
+  <div class="container">
+    <h1 class="form-title">Welcome To Fitness</h1>
 
-<h1 style="color:red; text-align: center;"> <u>ProFit</u></h1>
+    <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
+      <div class="popmsz" id="popmsz"></div>
+      <div class="min-user-info">
+        <div class="user-input-box">
+          <label for="UserName">UserName</label>
+          <input
+            type="text" id="UserName" name="UserName" placeholder="Enter Your UserName" ngModel />
+            <br>
+        </div>
 
-    <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)"  >
-        <table align="center">
-            <tr>
-                <td align="right">Email-ID</td>
-                <td align="left"><input type="text" name="emailId" ngModel  /> </td>
-            </tr>
-        <br/>
-            <tr>
-                <td align="right">Password</td>
-                <td align="left"><input type="password" name="password" ngModel /> </td>
-            </tr>
-            <br/>
-            <tr>
-           
-                <td align="right"></td>
-                <td align="center"> <button class="btn btn-primary" style="background-color:lightblue;"> <b> Login </b></button> </td>
-            </tr>
-   
-
-</table>
+        <div class="user-input-box">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter Password" ngModel/>
+          <br>
+        </div>
+      </div>
+    
+ 
+      <div class="form-submit-btn">
+       <b> <input type="submit" value="Log In" routerLink="admin" routerLink="log"/></b>
+        <b><input type="submit" value="Register" routerLink="register"/></b>
+      </div>
+    
     </form>
+  </div>
+</div>
+

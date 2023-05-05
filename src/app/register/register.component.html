@@ -1,71 +1,158 @@
-<!-- <p>register works!</p> -->
-<h1 align=style="color:red; text-align: center;"> Registration </h1>
-
-<form #regFrom="ngForm" (ngSubmit)="Registration(regFrom.value)">
-
-<table align="center">
-    <tr>
-        <td align="right">ID</td>
-        <td align="left"><input type="number" name="Id" ngModel /> </td>
-    </tr>
-
-    <tr>
-        <td align="right">Name</td>
-        <td align="left"><input type="text" name="Name" ngModel /> </td>
-    </tr>
-
-    <tr>
-        <td align="right">Gender</td>
-        <td align="left">
-            <select name="gender" ngModel>
-                <option value=""> Select Gender </option>
-                <option value="Male"> Male </option>
-                <option value="Female"> Female </option>
-                <option value="Other"> Other </option>
-            </select>
-        </td>
-    </tr>
-
-    <tr>
-        <td align="right">Country</td>
-        <td align="left">
-            <select name="country" ngModel>
-                <option value=""> Select Country </option>
-                <option value="IND"> INDIA </option>
-                <option value="CHI"> CHINA </option>
-                <option value="BUT"> BUTAN </option>
-                <option value="US">  USA   </option>
-                <option value="GB">  UK    </option>
-            </select>
-        </td>
-    </tr>
-
-    <tr>
-        <td align="right">Date of Join</td>
-        <td align="left"><input type="date" name="doj" ngModel /> </td>
-    </tr>
-
-    <tr>
-        <td align="right">Email-ID</td>
-        <td align="left"><input type="text" name="emailId" ngModel /> </td>
-    </tr>
-
-    <tr>
-        <td align="right">Password</td>
-        <td align="left"><input type="password" name="password" ngModel /> </td>
-    </tr>
-
-    <tr>
-        <td align="right"></td>
-        <td align="left"> <button> Register </button> </td>
-    </tr>
-
-</table>
-</form>
-
-
-
-
-
-
-
+<div class="main-c">
+    <div class="container">
+      <h1 class="form-title">Welcome To Fitness</h1>
+  
+      <form #regForm="ngForm" (ngSubmit)="userReg(regForm.value)" novalidate>
+        <div class="min-user-info">
+          <div class="user-input-box">
+            <label for="fullName">Full Name</label>
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              placeholder="Enter Full Name"
+              #fName="ngModel"
+              ngModel
+              required
+              minlength="2"
+              maxlength="30"
+            />
+            <div class="errmsz">
+              <div *ngIf="fName.errors?.['required'] && fName.touched">
+                <h3>Please Enter Your Name</h3>
+              </div>
+              <div *ngIf="fName.errors?.['minlength'] && fName.touched">
+                <h3>Please Enter Atleast 2 Characters for Name</h3>
+              </div>
+            </div>
+          </div>
+          <div class="user-input-box">
+            <label for="username">User Name</label>
+            <input
+              type="text"
+              id="username"
+              name="userName"
+              placeholder="Enter UserName"
+              #uName="ngModel"
+              ngModel
+              required
+              minlength="2"
+              maxlength="25"
+            />
+            <div class="errmsz">
+              <div *ngIf="uName.errors?.['required'] && uName.touched">
+                <h3>Please Enter UserName</h3>
+              </div>
+              <div *ngIf="uName.errors?.['minlength'] && uName.touched">
+                <h3>Please Enter Atleast 2 Characters for UserName</h3>
+              </div>
+            </div>
+          </div>
+          <div class="user-input-box">
+            <label for="EmailId">Email-Id</label>
+            <input
+              type="text"
+              id="EmailId"
+              name="emailId"
+              placeholder="Enter Email-Id"
+              #eId="ngModel"
+              ngModel
+              required
+            />
+            <div class="errmsz">
+              <div *ngIf="eId.errors?.['required'] && eId.touched">
+                <h3>Please Enter Email Id</h3>
+              </div>
+              <div *ngIf="eId.errors?.['minlength'] && eId.touched">
+                <h3>Please Enter Correct id</h3>
+              </div>
+            </div>
+          </div>
+          <div class="user-input-box">
+            <label for="phoneNumber">Phone Number</label>
+            <input
+              type="text"
+              id="phoneNumber"
+              name="phoneNo"
+              placeholder="Enter Phone Number"
+              #pNumer="ngModel"
+              ngModel
+              required
+              minlength="10"
+              maxlength="13"
+              pattern="^((\+91)?|0)?[6789]\d{9}$"
+            />
+            <div class="errmsz">
+              <div *ngIf="pNumer.invalid && pNumer.touched">
+                Please enter a valid PhoneNumber in the format of xxxxxxxxxx,
+                +91xxxxxxxxxx.
+              </div>
+            </div>
+          </div>
+  
+          <div class="user-input-box">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter Password"
+              #password="ngModel"
+              ngModel
+              required
+              minlength="8"
+            />
+            <div class="errmsz">
+              <div *ngIf="password.errors?.['required'] && password.touched">
+                <h3>Please Enter Password</h3>
+              </div>
+              <div *ngIf="password.errors?.['minlength'] && password.touched">
+                <h3>Please Enter Atleast 8 Characters for Password</h3>
+              </div>
+            </div>
+          </div>
+          <div class="user-input-box">
+            <label for="confirmpassword"> Confirm Password</label>
+            <input
+              type="password"
+              id="confirmpassword"
+              name="confirmpassword"
+              placeholder=" Confirm Password"
+              #cpassword="ngModel"
+              ngModel
+              required
+            />
+            <div class="errmsz">
+              <div *ngIf="cpassword.errors?.['required'] && cpassword.touched">
+                <h3>Please Re-Enter Password</h3>
+              </div>
+              <div
+                *ngIf="
+                  regForm.value.password !== regForm.value.confirmpassword &&
+                  cpassword.touched
+                "
+              >
+                <h3>Please Enter The Same Password As Before</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="gender-detail-box">
+          <span class="gender-title">Gender</span>
+          <div class="gender-category" ngModel>
+            <input type="radio" name="gender" id="male" />
+            <label for="male" id="g1">Male</label>
+            <input type="radio" name="gender" id="female" />
+            <label for="female" id="g1">FeMale</label>
+            <input type="radio" name="gender" id="other" />
+            <label for="other" id="g1">Other</label>
+          </div>
+        </div>
+        <div class="form-submit-btn">
+          <input type="submit" value="Register" [disabled]="!regForm.valid" />
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  
